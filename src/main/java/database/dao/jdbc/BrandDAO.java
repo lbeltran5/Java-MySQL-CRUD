@@ -1,7 +1,7 @@
-package database.dao;
+package database.dao.jdbc;
 
 import database.ConnectionPool;
-import database.interfaces.DAO;
+import database.dao.*;
 import database.model.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,11 +10,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrandDAO implements DAO<BrandModel> {
+public class BrandDAO extends AbstractDAO implements DAO<BrandModel> {
     private static final Logger LOGGER = LogManager.getLogger(BrandDAO.class);
     private final Connection connection;
 
     public BrandDAO(Connection connection) {
+        super(connection);
         this.connection = connection;
     }
 

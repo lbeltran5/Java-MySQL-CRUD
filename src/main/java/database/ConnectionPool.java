@@ -71,12 +71,14 @@ public class ConnectionPool {
     }
     public synchronized void putback(Connection c) {
         if (c != null) {
-            if (activeConnections.remove(c)) {
+            boolean removed = activeConnections.remove(c);
+            if (removed) {
                 conPool.add(c);
                 LOGGER.info("Putting the connection back to Connection pool: " + c.toString());
             } else {
-                throw new IllegalArgumentException("Connection is not in the Active Connections list");
+                LOGGER.warn("Connection is not in the Active Connections list: " + c.toString());
             }
         }
     }
+
 }
