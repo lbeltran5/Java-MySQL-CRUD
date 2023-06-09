@@ -1,7 +1,7 @@
 package database.service;
 
-import java.sql.SQLException;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 public interface GenericService<T> {
     List<T> getAll() throws SQLException;

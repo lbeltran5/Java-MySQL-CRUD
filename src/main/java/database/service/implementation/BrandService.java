@@ -2,7 +2,7 @@ package database.service.implementation;
 
 import database.dao.DAO;
 import database.model.BrandModel;
-import database.service.GenericService;
+import database.service.*;
 
 import java.sql.SQLException;
 import java.util.List;
